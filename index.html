@@ -138,7 +138,7 @@ function initialize()
 				.load( 'fish-2.obj', function ( group ) {
 					mesh1 = group.children[0];
 					mesh1.material.side = THREE.DoubleSide;
-					mesh1.position.y = 0.25;
+					mesh1.position.y = 0.5;
 					mesh1.scale.set(0.25,0.25,0.25);
 					markerRoot1.add(mesh1);
 				}, onProgress, onError );
@@ -183,7 +183,7 @@ function animate()
 	requestAnimationFrame(animate);
 	deltaTime = clock.getDelta();
 	totalTime += deltaTime;
-	//mesh0.rotation.y= totalTime;
+	mesh0.rotation.y= totalTime;
 	mesh1.rotation.y= totalTime/2;
 	//camera.position.x = Math.cos( totalTime );
 	//camera.position.z = Math.sin( totalTime );
