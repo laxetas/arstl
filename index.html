@@ -33,7 +33,7 @@ var arToolkitSource, arToolkitContext;
 
 var markerRoot1;
 
-var mesh0;
+var mesh0, mesh1;
 
 initialize();
 animate();
@@ -140,7 +140,7 @@ function initialize()
 					mesh0.material.side = THREE.DoubleSide;
 					mesh0.position.y = 0.25;
 					mesh0.scale.set(0.25,0.25,0.25);
-					markerRoot1.add(mesh0);
+					markerRoot1.add(mesh1);
 				}, onProgress, onError );
 		});
 	
@@ -183,7 +183,8 @@ function animate()
 	requestAnimationFrame(animate);
 	deltaTime = clock.getDelta();
 	totalTime += deltaTime;
-	mesh0.rotation.z = totalTime;
+	mesh0.rotation.x= totalTime;
+	mesh1.rotation.x= totalTime/2;
 	//camera.position.x = Math.cos( totalTime );
 	//camera.position.z = Math.sin( totalTime );
 				
