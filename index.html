@@ -144,22 +144,17 @@ function initialize()
 				}, onProgress, onError );
 		});
 	
-	var loader = new THREE.STLLoader();
-				loader.load( 'models/peza.stl', function ( geometry ) {
-
-					var material = new THREE.MeshPhongMaterial( { color: 0xfbaf53, specular: 0x111000, shininess: 100 } );
-					var mesh = new THREE.Mesh( geometry, material );
-
-					mesh.position.set( -5, -5, 0 ); // X,Y,Z considerando el centro de pantalla
-					mesh.rotation.set( -Math.PI/2,0,-Math.PI/4 ); // Ejes de giro X, Z, Y considerando el centro de pantalla
-					mesh.scale.set( 1, 1,1 );
-					geometry.center();
-					mesh.castShadow = true;
-					mesh.receiveShadow = true;
-
-					scene.add( mesh );
-
-	} );
+	new THREE.OBJLoader()
+				.setMaterials( materials )
+				.setPath( 'models/' )
+				.load( 'fish-2.obj', function ( group ) {
+					mesh0 = group.children[0];
+					mesh0.material.side = THREE.DoubleSide;
+					mesh0.position.y = 0.25;
+					mesh0.scale.set(0.25,0.25,0.25);
+					markerRoot1.add(mesh0);
+				}, onProgress, onError );
+	
 }
 
 
