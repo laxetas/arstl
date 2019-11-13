@@ -154,7 +154,7 @@ function initialize()
 				.load( 'peza.obj', function ( group ) {
 					mesh0 = group.children[0];
 					mesh0.material.side = THREE.DoubleSide;
-					mesh0.rotation.set( Math.PI,0,0);
+					mesh0.rotation.set( Math.PI,0,Math.PI);
 					mesh0.position.y = 0.25;
 					mesh0.scale.set(0.1,0.1,0.1);
 					markerRoot1.add(mesh0);
@@ -183,7 +183,7 @@ function animate()
 	requestAnimationFrame(animate);
 	deltaTime = clock.getDelta();
 	totalTime += deltaTime;
-	mesh0.rotation.z= totalTime;
+	//mesh0.rotation.z= totalTime;
 	mesh1.rotation.y= totalTime/2;
 	//camera.position.x = Math.cos( totalTime );
 	//camera.position.z = Math.sin( totalTime );
