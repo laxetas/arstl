@@ -183,8 +183,9 @@ function animate()
 	requestAnimationFrame(animate);
 	deltaTime = clock.getDelta();
 	totalTime += deltaTime;
-	camera.position.x = Math.cos( totalTime );
-	camera.position.z = Math.sin( totalTime );
+	mesh.rotation.z = totalTime;
+	//camera.position.x = Math.cos( totalTime );
+	//camera.position.z = Math.sin( totalTime );
 				
 	//camera.lookAt( cameraTarget );
 
